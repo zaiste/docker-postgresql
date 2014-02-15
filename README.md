@@ -1,31 +1,36 @@
 Docker-PostgreSQL
 =================
 
-PostgreSQL in a Docker container (versions `9.2` and `9.3`).
+PostgreSQL in a Docker container; versions `9.2` and `9.3`, each on a dedicated
+branch: `postgresql-9.2` and `postgresql-9.3` respectively.
 
 Create Docker image
 -------------------
 
+Clone the repository
+
+    git clone git@github.com:zaiste/docker-postgresql.git
+
+For PostgreSQL `9.3` (currently on `master`)
+
+    docker build -t [your name]/postgresql:9.3 .
+
 For PostgreSQL `9.2`
 
-```
-cd docker-postgresql/9.2
-docker build -t [your name]/postgresql:9.2 .
-```
+    git co postgresql-9.2
+    docker build -t [your name]/postgresql:9.2 .
 
-For PostgreSQL `9.3`
-
-```
-cd docker-postgresql/9.3
-docker build -t [your name]/postgresql:9.3 .
-```
 
 First run
 ---------
 
-By default, first container run initializes a database named `docker` with `docker` role and password. This can be overwritten by defining `POSTGRESQL_DB`, `POSTGRESQL_USER` and `POSTGRESQL_PASS` variables.
+By default, first container run initializes a database named `docker` with
+`docker` role and password. This can be overwritten by defining `POSTGRESQL_DB`,
+`POSTGRESQL_USER` and `POSTGRESQL_PASS` variables.
 
-PostgreSQL server is configured to store data in `/data` inside the container. This directory can be mapped to any directory on the host using `-v` parameter, e.g. `/data` is mapped to `/tmp/data` on the host.
+PostgreSQL server is configured to store data in `/data` inside the container.
+This directory can be mapped to any directory on the host using `-v` parameter;
+in the following example `/data` is mapped to `/tmp/data` on the host.
 
 ```
 docker run -rm \

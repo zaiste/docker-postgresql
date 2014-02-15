@@ -5,8 +5,8 @@ POSTGRESQL_USER=${POSTGRESQL_USER:-"docker"}
 POSTGRESQL_PASS=${POSTGRESQL_PASS:-"docker"}
 POSTGRESQL_DB=${POSTGRESQL_DB:-"docker"}
 
-POSTGRESQL_BIN_PATH=/usr/lib/postgresql/9.2/bin
-POSTGRESQL_CONFIG_FILE=/etc/postgresql/9.2/main/postgresql.conf
+POSTGRESQL_BIN_PATH=/usr/lib/postgresql/9.3/bin
+POSTGRESQL_CONFIG_FILE=/etc/postgresql/9.3/main/postgresql.conf
 POSTGRESQL_DATA=/data
 
 if find $POSTGRESQL_DATA -maxdepth 0 -empty | read v; then
